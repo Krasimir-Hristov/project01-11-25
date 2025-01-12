@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           <Image
             src={assets.logo}
             alt='logo'
-            className='w-28 cursor-pointer mr-14'
+            className='w-12 sm:w-20 cursor-pointer mr-14 rounded-full'
           />
         </Link>
 

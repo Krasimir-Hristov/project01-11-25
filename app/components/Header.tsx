@@ -7,11 +7,11 @@ const Header = () => {
   return (
     <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>
       {/* Промяна тук */}
-      <div className='mt-4 sm:mt-6 md:mt-8 lg:mt-0'>
+      <div className='mt-0 sm:mt-2 md:mt-4 lg:mt-12 xl:mt-16'>
         <Image
           src={assets.header_Image}
           alt='header'
-          className='w-full max-w-[120px] sm:max-w-[180px] md:max-w-[250px] lg:max-w-[400px] h-auto'
+          className='w-56 sm:w-72 md:w-96 lg:w-[500px] xl:w-[600px] 2xl:w-[700px] h-auto'
         />
       </div>
 

@@ -90,7 +90,14 @@ export const navLinks: NavLink[] = [
   { href: '/contacts', label: 'Contacts' },
 ]
 
-export const workData = [
+//Work Data
+export interface WorkItem {
+  title: string
+  description: string
+  bgImage: string
+}
+
+export const workData: WorkItem[] = [
   {
     title: 'Frontend project',
     description: 'Web Design',
@@ -113,7 +120,14 @@ export const workData = [
   },
 ]
 
-export const serviceData = [
+export interface ServiceData {
+  icon: {}
+  title: string
+  description: string
+  link: string
+}
+
+export const serviceData: ServiceData[] = [
   {
     icon: assets.web_icon,
     title: 'Web design',
@@ -142,7 +156,14 @@ export const serviceData = [
   },
 ]
 
-export const infoList = [
+export interface InfoItem {
+  icon: {}
+  iconDark: {}
+  title: string
+  description: string
+}
+
+export const infoList: InfoItem[] = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,

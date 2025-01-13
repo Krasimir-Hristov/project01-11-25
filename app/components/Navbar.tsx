@@ -13,6 +13,11 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  // Function to close the mobile menu
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (scrollY > 50) {
@@ -107,7 +112,11 @@ const Navbar: React.FC = () => {
         <ul className='flex flex-col items-center'>
           {navLinks.map((link: NavLink) => (
             <li key={link.href} className='mb-4'>
-              <Link href={link.href} className='font-Ovo font-extrabold'>
+              <Link
+                href={link.href}
+                className='font-Ovo font-extrabold'
+                onClick={closeMenu}
+              >
                 {link.label}
               </Link>
             </li>

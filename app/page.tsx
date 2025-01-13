@@ -8,10 +8,13 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Header />
+      <div id='home'>
+        <Header />
+      </div>
       <div id='about'>
         <About />
       </div>
+      {/* Добавете други секции тук с уникални id атрибути */}
     </>
   )
 }

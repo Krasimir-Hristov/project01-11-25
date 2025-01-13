@@ -1,16 +1,27 @@
 import { assets, NavLink, navLinks } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Navbar: React.FC = () => {
   // State to handle the opening/closing of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScroll, setIsScroll] = useState(false)
 
   // Function to toggle the mobile menu state
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (scrollY > 50) {
+        setIsScroll(true)
+      } else {
+        setIsScroll(false)
+      }
+    })
+  }, [])
 
   return (
     <>
@@ -20,7 +31,11 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Main navigation */}
-      <nav className='w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50'>
+      <nav
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
+          isScroll ? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm' : ''
+        }`}
+      >
         {/* Logo link */}
         <Link href='/'>
           <Image

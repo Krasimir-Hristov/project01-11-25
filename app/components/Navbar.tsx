@@ -46,7 +46,11 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Navigation links for desktop view */}
-        <ul className='hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50'>
+        <ul
+          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
+            isScroll ? '' : 'bg-white shadow-sm bg-opacity-50'
+          } `}
+        >
           {navLinks.map((link: NavLink) => (
             <li key={link.href}>
               <Link href={link.href} className='font-Ovo'>

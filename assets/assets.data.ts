@@ -35,6 +35,7 @@ import right_arrow from './right-arrow.png'
 import send_icon from './send-icon.png'
 import right_arrow_bold from './right-arrow-bold.png'
 import right_arrow_bold_dark from './right-arrow-bold-dark.png'
+import { StaticImageData } from 'next/image'
 
 export const assets = {
   user_image,
@@ -84,10 +85,10 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/work', label: 'Our Work' },
-  { href: '/contact', label: 'Contacts' },
+  { href: '#about', label: 'About Us' },
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Our Work' },
+  { href: '#contact', label: 'Contacts' },
 ]
 
 //Work Data
@@ -121,7 +122,7 @@ export const workData: WorkItem[] = [
 ]
 
 export interface ServiceData {
-  icon: {}
+  icon: StaticImageData
   title: string
   description: string
   link: string
@@ -157,8 +158,8 @@ export const serviceData: ServiceData[] = [
 ]
 
 export interface InfoItem {
-  icon: {}
-  iconDark: {}
+  icon: StaticImageData
+  iconDark: StaticImageData
   title: string
   description: string
 }

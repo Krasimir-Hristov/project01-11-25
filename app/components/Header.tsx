@@ -50,7 +50,7 @@ const Header = () => {
 
         {/* 🧾 About Us button with black text on white background */}
         <Link
-          href='/about'
+          href='#about'
           className='px-10 py-3 border border-black rounded-full text-black flex items-center gap-2'
         >
           About Us{' '}

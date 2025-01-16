@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
             <Image src={assets.moon_icon} alt='' className='w-6' />
           </button>
           <Link
-            href='/contacts'
+            href='#contact'
             className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo'
           >
             Contact

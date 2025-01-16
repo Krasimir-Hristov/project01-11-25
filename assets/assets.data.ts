@@ -96,7 +96,7 @@ export interface FooterLink {
   label: string
 }
 
-export const footerLinks: NavLink[] = [
+export const footerLinks: FooterLink[] = [
   { href: 'https://www.google.com/', label: 'Facebook.com' },
   { href: 'https://www.google.com/', label: 'Instagram.com' },
   { href: 'https://www.google.com/', label: 'LinkedIn.com' },

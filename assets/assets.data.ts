@@ -97,9 +97,9 @@ export interface FooterLink {
 }
 
 export const footerLinks: FooterLink[] = [
-  { href: 'https://www.google.com/', label: 'Facebook.com' },
-  { href: 'https://www.google.com/', label: 'Instagram.com' },
-  { href: 'https://www.google.com/', label: 'LinkedIn.com' },
+  { href: 'https://www.google.com/', label: 'Facebook' },
+  { href: 'https://www.google.com/', label: 'Instagram' },
+  { href: 'https://www.google.com/', label: 'LinkedIn' },
 ]
 
 //Work Data

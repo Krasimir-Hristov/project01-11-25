@@ -91,6 +91,17 @@ export const navLinks: NavLink[] = [
   { href: '#contact', label: 'Contacts' },
 ]
 
+export interface FooterLink {
+  href: string
+  label: string
+}
+
+export const footerLinks: NavLink[] = [
+  { href: 'https://www.google.com/', label: 'Facebook.com' },
+  { href: 'https://www.google.com/', label: 'Instagram.com' },
+  { href: 'https://www.google.com/', label: 'LinkedIn.com' },
+]
+
 //Work Data
 export interface WorkItem {
   title: string

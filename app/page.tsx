@@ -13,6 +13,18 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
 
   useEffect(() => {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      setIsDarkMode(true)
+    } else {
+      setIsDarkMode(false)
+    }
+  }, [])
+
+  useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
       localStorage.theme = 'dark'
@@ -23,24 +35,24 @@ export default function Home() {
   }, [isDarkMode])
   return (
     <>
-      <Navbar />
+      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <div id='home'>
-        <Header />
+        <Header isDarkMode={isDarkMode} />
       </div>
       <div id='about'>
-        <About />
+        <About isDarkMode={isDarkMode} />
       </div>
       <div id='services'>
-        <Services />
+        <Services isDarkMode={isDarkMode} />
       </div>
       <div id='work'>
-        <Work />
+        <Work isDarkMode={isDarkMode} />
       </div>
       <div id='contact'>
-        <Contact />
+        <Contact isDarkMode={isDarkMode} />
       </div>
       <div>
-        <Footer />
+        <Footer isDarkMode={isDarkMode} />
       </div>
       {/* Добавете други секции тук с уникални id атрибути */}
     </>

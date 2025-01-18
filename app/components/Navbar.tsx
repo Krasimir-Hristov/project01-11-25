@@ -8,7 +8,7 @@ interface NavbarProps {
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDarkMode, setIsDarkMode }) => {
+const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
   // State to handle the opening/closing of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScroll, setIsScroll] = useState(false)

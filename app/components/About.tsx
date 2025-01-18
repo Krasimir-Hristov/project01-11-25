@@ -11,7 +11,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
       <h2 className='text-center text-5xl font-Ovo'>About Us</h2>
 
       {/* Main content section */}
-      <div className='flex w-full flex-col lg:flex-row items-center gap-20 my-20'>
+      <div className='flex w-full max-w-7xl mx-auto flex-col lg:flex-row items-center gap-20 my-20 justify-center'>
         {/* Company image */}
         <div className='w-64 sm:w-80 rounded-3xl max-w-none'>
           <Image
@@ -22,7 +22,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
         </div>
         <div className='flex-1'>
           {/* Company description */}
-          <p className='mb-10 max-w-2xl font-Ovo'>
+          <p className='mb-10 max-w-2xl font-Ovo text-center lg:text-left'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
             voluptatem, quod, quas, doloremque quae nemo quibusdam voluptates
             dolorum quia quos aperiam. Quisquam voluptatem, quod, quas,
@@ -30,7 +30,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
           </p>
 
           {/* Info list section */}
-          <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
+          <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto lg:mx-0'>
             {infoList.map(
               (
                 { icon, title, iconDark, description }: InfoItem,
@@ -60,12 +60,12 @@ const About = ({ isDarkMode }: DarkModeProps) => {
           </ul>
 
           {/* Tools section */}
-          <h4 className='my-6 text-gray-700 font-Ovo dark:text-white/80'>
+          <h4 className='my-6 text-gray-700 font-Ovo dark:text-white/80 text-center lg:text-left'>
             Tools we use
           </h4>
 
           {/* Tools list */}
-          <ul className='flex items-center gap-3 sm:gap-5'>
+          <ul className='flex items-center gap-3 sm:gap-5 justify-center lg:justify-start'>
             {toolsData.map((tool, index) => (
               <li
                 key={index}

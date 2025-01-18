@@ -1,9 +1,8 @@
 import { assets } from '@/assets/assets.data'
 import Image from 'next/image'
 import { FormEvent, useState } from 'react'
-import DarkModeProps from '../types/darkMode'
 
-const Contact = ({ isDarkMode }: DarkModeProps) => {
+const Contact = () => {
   const [result, setResult] = useState<string>('')
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {

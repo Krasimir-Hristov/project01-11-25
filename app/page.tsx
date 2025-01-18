@@ -37,19 +37,19 @@ export default function Home() {
     <>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <div id='home'>
-        <Header isDarkMode={isDarkMode} />
+        <Header />
       </div>
       <div id='about'>
         <About isDarkMode={isDarkMode} />
       </div>
       <div id='services'>
-        <Services isDarkMode={isDarkMode} />
+        <Services />
       </div>
       <div id='work'>
         <Work isDarkMode={isDarkMode} />
       </div>
       <div id='contact'>
-        <Contact isDarkMode={isDarkMode} />
+        <Contact />
       </div>
       <div>
         <Footer isDarkMode={isDarkMode} />

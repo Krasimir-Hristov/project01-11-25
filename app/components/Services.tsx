@@ -3,10 +3,9 @@ import { assets, ServiceData, serviceData } from '@/assets/assets.data'
 import Image from 'next/image' // Import the Image component from next/image
 import Link from 'next/link' // Import the Link component from next/link
 import React from 'react' // Import the React library
-import { DarkModeProps } from '../types/darkMode'
 
 // Define the Services component as a functional component
-const Services = ({ isDarkMode }: DarkModeProps) => {
+const Services = () => {
   return (
     // Container element for the services section
     <div id='services' className='w-full px-[12%] py-10 scroll-mt-20'>

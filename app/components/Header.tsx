@@ -8,7 +8,7 @@ interface HeaderProps {
   isDarkMode: boolean
 }
 
-const Header: React.FC<HeaderProps> = ({ isDarkMode }) => {
+const Header = ({ isDarkMode }: HeaderProps) => {
   return (
     // 🖼️ Main container for the header section with flexbox centering and responsive width
     <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>

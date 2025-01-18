@@ -4,7 +4,11 @@ import Link from 'next/link'
 import React from 'react'
 
 // ✅ Header component definition
-const Header = () => {
+interface HeaderProps {
+  isDarkMode: boolean
+}
+
+const Header: React.FC<HeaderProps> = ({ isDarkMode }) => {
   return (
     // 🖼️ Main container for the header section with flexbox centering and responsive width
     <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>
@@ -41,7 +45,7 @@ const Header = () => {
         {/* 📧 Contact Us button with white text on black background */}
         <Link
           href='/contact'
-          className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2'
+          className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent'
         >
           Contact Us{' '}
           <Image src={assets.right_arrow_white} alt='arrow' className='w-4' />{' '}
@@ -51,10 +55,9 @@ const Header = () => {
         {/* 🧾 About Us button with black text on white background */}
         <Link
           href='#about'
-          className='px-10 py-3 border border-black rounded-full text-black flex items-center gap-2'
+          className='hidden lg:flex items-center gap-3 px-10 py-2.5 border text-black border-gray-500 rounded-full ml-4 bg-white font-Ovo dark:border-white/50'
         >
-          About Us{' '}
-          <Image src={assets.right_arrow_white} alt='arrow' className='w-4' />{' '}
+          About Us <Image src={assets.arrow_icon} alt='arrow' className='w-3' />{' '}
           {/* ➡️ Right arrow icon */}
         </Link>
       </div>

@@ -3,17 +3,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Footer = () => {
+interface FooterProps {
+  isDarkMode: boolean
+}
+const Footer = ({ isDarkMode }: FooterProps) => {
   return (
     <div className='mt-20'>
       <div className='text-center'>
         <Image
-          src={assets.logo}
+          src={isDarkMode ? assets.logo_dark : assets.logo}
           alt='logo'
           className='w-36 mx-auto mb-2 rounded-full'
         />
         <div className='flex w-max items-center gap-2 mx-auto '>
-          <Image src={assets.mail_icon} alt='logo' className='w-6 ' />
+          <Image
+            src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
+            alt='logo'
+            className='w-6 '
+          />
           testuser@gmail.com
         </div>
       </div>

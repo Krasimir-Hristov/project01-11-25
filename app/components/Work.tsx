@@ -3,7 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Work = () => {
+interface WorkProps {
+  isDarkMode: boolean
+}
+const Work = ({ isDarkMode }: WorkProps) => {
   return (
     <div id='work' className='w-full px-[12%] py-10 scroll-mt-20'>
       <h4 className='text-center mb-2 text-lg font-Ovo'>Our Projects</h4>
@@ -16,7 +19,7 @@ const Work = () => {
         dolorum quia quos aperiam.
       </p>
 
-      <div className='grid grid-cols-auto my10 gap-5'>
+      <div className='grid grid-cols-auto my10 gap-5 dark:text-black'>
         {workData.map(
           ({ title, description, bgImage }: WorkItem, index: number) => (
             <div
@@ -39,11 +42,19 @@ const Work = () => {
       </div>
       <Link
         href={'#contact'}
-        className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500'
+        className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700
+         rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white
+          dark:border-white dark:hover:bg-darkHover'
       >
         {' '}
         Contact Us Today{' '}
-        <Image src={assets.right_arrow_bold} alt='arrow' className='w-4' />
+        <Image
+          src={
+            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
+          }
+          alt='arrow'
+          className='w-4'
+        />
       </Link>
     </div>
   )

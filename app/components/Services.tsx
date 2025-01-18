@@ -4,8 +4,11 @@ import Image from 'next/image' // Import the Image component from next/image
 import Link from 'next/link' // Import the Link component from next/link
 import React from 'react' // Import the React library
 
+interface ServicecProps {
+  isDarkMode: boolean
+}
 // Define the Services component as a functional component
-const Services = () => {
+const Services = ({ isDarkMode }: ServicecProps) => {
   return (
     // Container element for the services section
     <div id='services' className='w-full px-[12%] py-10 scroll-mt-20'>
@@ -28,14 +31,19 @@ const Services = () => {
             // Individual service card container
             <div
               key={index}
-              className='border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-x-1 duration-500'
+              className='border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer
+               hover:bg-lightHover hover:-translate-x-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white'
             >
               {/* // Service icon */}
               <Image src={icon} alt={title} className='w-10' />
               {/* // Service title */}
-              <h3 className='text-lg my-4 text-gray-700'>{title}</h3>
+              <h3 className='text-lg my-4 text-gray-700 dark:text-white'>
+                {title}
+              </h3>
               {/* // Service description */}
-              <p className='text-sm text-gray-600 leading-5'>{description}</p>
+              <p className='text-sm text-gray-600 leading-5 dark:text-white/80'>
+                {description}
+              </p>
               {/* // Link to learn more about the service */}
               <Link
                 href={link}

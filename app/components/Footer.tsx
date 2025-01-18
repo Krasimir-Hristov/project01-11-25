@@ -2,7 +2,7 @@ import { assets, FooterLink, footerLinks } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import DarkModeProps from '../types/darkMode'
+import { DarkModeProps } from '../types/darkMode'
 
 const Footer = ({ isDarkMode }: DarkModeProps) => {
   return (

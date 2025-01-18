@@ -2,11 +2,9 @@ import { assets, workData, WorkItem } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { DarkModeProps } from '../types/darkMode'
 
-interface WorkProps {
-  isDarkMode: boolean
-}
-const Work = ({ isDarkMode }: WorkProps) => {
+const Work = ({ isDarkMode }: DarkModeProps) => {
   return (
     <div id='work' className='w-full px-[12%] py-10 scroll-mt-20'>
       <h4 className='text-center mb-2 text-lg font-Ovo'>Our Projects</h4>

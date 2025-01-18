@@ -2,13 +2,9 @@ import { assets, NavLink, navLinks } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { DarkModeNavbarProps } from '../types/darkMode'
 
-interface NavbarProps {
-  isDarkMode: boolean
-  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
+const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
   // State to handle the opening/closing of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScroll, setIsScroll] = useState(false)

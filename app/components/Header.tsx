@@ -2,13 +2,11 @@ import { assets } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { DarkModeProps } from '../types/darkMode'
 
 // ✅ Header component definition
-interface HeaderProps {
-  isDarkMode: boolean
-}
 
-const Header = ({ isDarkMode }: HeaderProps) => {
+const Header = ({ isDarkMode }: DarkModeProps) => {
   return (
     // 🖼️ Main container for the header section with flexbox centering and responsive width
     <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>

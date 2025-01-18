@@ -1,11 +1,9 @@
 import { assets, InfoItem, infoList, toolsData } from '@/assets/assets.data'
 import Image from 'next/image'
 import React from 'react'
+import { DarkModeProps } from '../types/darkMode'
 
-interface AboutProps {
-  isDarkMode: boolean
-}
-const About = ({ isDarkMode }: AboutProps) => {
+const About = ({ isDarkMode }: DarkModeProps) => {
   return (
     <div className='w-full px-[12%] py-10 scroll-mt-20'>
       {/* Introduction section */}

@@ -2,11 +2,9 @@ import { assets, FooterLink, footerLinks } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import DarkModeProps from '../types/darkMode'
 
-interface FooterProps {
-  isDarkMode: boolean
-}
-const Footer = ({ isDarkMode }: FooterProps) => {
+const Footer = ({ isDarkMode }: DarkModeProps) => {
   return (
     <div className='mt-20'>
       <div className='text-center'>

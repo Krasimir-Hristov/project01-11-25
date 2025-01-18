@@ -30,6 +30,7 @@ const config: Config = {
       },
     },
   },
+  darkMode: 'selector',
   plugins: [],
 }
 

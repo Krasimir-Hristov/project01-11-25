@@ -2,6 +2,7 @@ import { assets } from '@/assets/assets.data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { motion } from 'motion/react'
 
 // ✅ Header component definition
 
@@ -10,13 +11,19 @@ const Header = () => {
     // 🖼️ Main container for the header section with flexbox centering and responsive width
     <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>
       {/* 🖼️ Image section for the header image with responsive margins and sizes */}
-      <div className='mt-0 sm:mt-2 md:mt-4 lg:mt-12 xl:mt-16'>
-        <Image
-          src={assets.header_Image} // 📁 Path to the header image from the assets object
-          alt='header' // 📝 Alternative text for accessibility
-          className='w-56 sm:w-72 md:w-96 lg:w-[500px] xl:w-[600px] 2xl:w-[700px] h-auto' // 📐 Responsive width classes for different screen sizes
-        />
-      </div>
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
+      >
+        <div className='mt-0 sm:mt-2 md:mt-4 lg:mt-12 xl:mt-16'>
+          <Image
+            src={assets.header_Image} // 📁 Path to the header image from the assets object
+            alt='header' // 📝 Alternative text for accessibility
+            className='w-56 sm:w-72 md:w-96 lg:w-[500px] xl:w-[600px] 2xl:w-[700px] h-auto' // 📐 Responsive width classes for different screen sizes
+          />
+        </div>
+      </motion.div>
 
       {/* 👋 Greeting text with an icon */}
       <h3 className='flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo'>

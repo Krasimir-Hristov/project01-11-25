@@ -1,6 +1,5 @@
 import { assets } from '@/assets/assets.data'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import { motion } from 'motion/react'
 
@@ -26,44 +25,65 @@ const Header = () => {
       </motion.div>
 
       {/* 👋 Greeting text with an icon */}
-      <h3 className='flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo'>
+      <motion.h3
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className='flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo'
+      >
         Hi! We are TEST COMPANY{' '}
         <Image src={assets.hand_icon} alt='header' className='w-6' />{' '}
         {/* ✋ Hand icon next to the greeting text */}
-      </h3>
+      </motion.h3>
 
       {/* 📝 Main headline text with responsive font sizes */}
-      <h1 className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'>
+      <motion.h1
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'
+      >
         Test text based somewhere in the world
-      </h1>
+      </motion.h1>
 
       {/* 📄 Description paragraph with limited width for better readability */}
-      <p className='max-w-2xl mx-auto font-Ovo'>
+      <motion.p
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className='max-w-2xl mx-auto font-Ovo'
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
         pellentesque, mauris nec interdum ultrices, erat quam lacinia turpis, eu
         luctus nunc eros sed ipsum.
-      </p>
+      </motion.p>
 
       {/* 🔗 Buttons section with two links: Contact Us and About Us */}
       <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
         {/* 📧 Contact Us button with white text on black background */}
-        <Link
-          href='/contact'
+        <motion.a
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          href='#contact'
           className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent'
         >
           Contact Us{' '}
           <Image src={assets.right_arrow_white} alt='arrow' className='w-4' />{' '}
           {/* ➡️ Right arrow icon */}
-        </Link>
+        </motion.a>
 
         {/* 🧾 About Us button with black text on white background */}
-        <Link
+        <motion.a
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
           href='#about'
           className='hidden lg:flex items-center gap-3 px-10 py-2.5 border text-black border-gray-500 rounded-full ml-4 bg-white font-Ovo dark:border-white/50'
         >
           About Us <Image src={assets.arrow_icon} alt='arrow' className='w-3' />{' '}
           {/* ➡️ Right arrow icon */}
-        </Link>
+        </motion.a>
       </div>
     </div>
   )

@@ -1,6 +1,8 @@
 'use client';
 
+// Core React imports
 import { useEffect, useRef, useState } from 'react';
+// Page component imports
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -9,11 +11,12 @@ import Navbar from './components/Navbar';
 import Services from './components/Services';
 import Work from './components/Work';
 
+// Chat dependencies
+import { useChat } from '@ai-sdk/react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import { useChat } from '@ai-sdk/react';
-
+// UI Component imports
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -25,8 +28,8 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
+// Icon imports
 import { motion, AnimatePresence } from 'framer-motion';
-
 import {
   X,
   MessageCircle,
@@ -35,12 +38,14 @@ import {
   ArrowDownCircleIcon,
 } from 'lucide-react';
 
+// Custom code block component for markdown rendering
 interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {
   inline?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
 
+// CodeBlock component implementation for markdown code formatting
 function CodeBlock({ inline, children, className, ...props }: MyCodeProps) {
   if (inline) {
     return (
@@ -60,24 +65,30 @@ function CodeBlock({ inline, children, className, ...props }: MyCodeProps) {
 }
 
 export default function Home() {
+  // Theme state
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [showChatIcon, setShowChatIcon] = useState(false);
-  const chatIconRef = useRef<HTMLButtonElement>(null);
 
+  // Chat UI states
+  const [isChatOpen, setIsChatOpen] = useState(false); // Controls chat window visibility
+  const [showChatIcon, setShowChatIcon] = useState(false); // Controls chat icon visibility
+  const chatIconRef = useRef<HTMLButtonElement>(null); // Reference to chat button
+
+  // Initialize AI chat functionality
   const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    isLoading,
-    stop,
-    reload,
-    error,
+    messages, // Chat message history
+    input, // Current input field value
+    handleInputChange, // Input change handler
+    handleSubmit, // Form submission handler
+    isLoading, // Loading state indicator
+    stop, // Stop message generation
+    reload, // Retry failed requests
+    error, // Error state
   } = useChat({ api: '/api/gemini' });
 
+  // Reference for auto-scrolling to latest message
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Show/hide chat icon based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
@@ -94,16 +105,19 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Chat window toggle handler
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  // Auto-scroll to latest message
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
 
+  // Dark mode initialization
   useEffect(() => {
     if (
       localStorage.theme === 'dark' ||
@@ -116,6 +130,7 @@ export default function Home() {
     }
   }, []);
 
+  // Dark mode application
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -125,8 +140,10 @@ export default function Home() {
       localStorage.theme = '';
     }
   }, [isDarkMode]);
+
   return (
     <>
+      {/* Main page content */}
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <div id='home'>
         <Header />
@@ -146,6 +163,8 @@ export default function Home() {
       <div>
         <Footer isDarkMode={isDarkMode} />
       </div>
+
+      {/* Floating Chat Button */}
       <AnimatePresence>
         {showChatIcon && (
           <motion.div
@@ -171,6 +190,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* Chat Window */}
       <AnimatePresence>
         {isChatOpen && (
           <motion.div
@@ -181,6 +201,7 @@ export default function Home() {
             className='fixed bottom-20 right-4 z-50 w-[95%] md:w-[500px]'
           >
             <Card className='border-2'>
+              {/* Chat Header */}
               <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-3'>
                 <CardTitle className='text-lg font-bold'>
                   Chat With Krasimir AI Bot
@@ -196,14 +217,17 @@ export default function Home() {
                 </Button>
               </CardHeader>
 
+              {/* Chat Messages Area */}
               <CardContent>
                 <ScrollArea className='h-[300px] pr-4'>
+                  {/* Empty State */}
                   {messages?.length === 0 && (
                     <div className='w-full mt-32 text-gray-500 items-center justify-center flex gap-3'>
                       No message yet.
                     </div>
                   )}
 
+                  {/* Message List */}
                   {messages?.map((message, index) => (
                     <div
                       key={index}
@@ -236,6 +260,7 @@ export default function Home() {
                     </div>
                   ))}
 
+                  {/* Loading Indicator */}
                   {isLoading && (
                     <div className='w-full items-center flex justify-center gap-3'>
                       <Loader2 className='animate-spin h-5 w-5 text-primary' />
@@ -249,6 +274,7 @@ export default function Home() {
                     </div>
                   )}
 
+                  {/* Error State */}
                   {error && (
                     <div className='w-full items-center flex justify-center gap-3'>
                       <p>An error occurred.</p>
@@ -262,10 +288,12 @@ export default function Home() {
                     </div>
                   )}
 
+                  {/* Auto-scroll anchor */}
                   <div ref={scrollRef}></div>
                 </ScrollArea>
               </CardContent>
 
+              {/* Message Input Form */}
               <CardFooter>
                 <form
                   onSubmit={handleSubmit}

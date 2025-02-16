@@ -1,16 +1,108 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Navbar from './components/Navbar'
-import Services from './components/Services'
-import Work from './components/Work'
+import { useEffect, useRef, useState } from 'react';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Services from './components/Services';
+import Work from './components/Work';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
+import { useChat } from '@ai-sdk/react';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
+import { motion, AnimatePresence } from 'framer-motion';
+
+import {
+  X,
+  MessageCircle,
+  Send,
+  Loader2,
+  ArrowDownCircleIcon,
+} from 'lucide-react';
+
+interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {
+  inline?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+function CodeBlock({ inline, children, className, ...props }: MyCodeProps) {
+  if (inline) {
+    return (
+      <code
+        {...props}
+        className={`bg-gray-200 px-1 rounded ${className || ''}`}
+      >
+        {children}
+      </code>
+    );
+  }
+  return (
+    <pre {...props} className={`bg-gray-200 p-2 rounded ${className || ''}`}>
+      <code>{children}</code>
+    </pre>
+  );
+}
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [showChatIcon, setShowChatIcon] = useState(false);
+  const chatIconRef = useRef<HTMLButtonElement>(null);
+
+  const {
+    messages,
+    input,
+    handleInputChange,
+    handleSubmit,
+    isLoading,
+    stop,
+    reload,
+    error,
+  } = useChat({ api: '/api/gemini' });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowChatIcon(true);
+      } else {
+        setShowChatIcon(false);
+        setIsChatOpen(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (
@@ -18,21 +110,21 @@ export default function Home() {
       (!('theme' in localStorage) &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
-      setIsDarkMode(true)
+      setIsDarkMode(true);
     } else {
-      setIsDarkMode(false)
+      setIsDarkMode(false);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.theme = 'dark'
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
     } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.theme = ''
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = '';
     }
-  }, [isDarkMode])
+  }, [isDarkMode]);
   return (
     <>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
@@ -54,7 +146,152 @@ export default function Home() {
       <div>
         <Footer isDarkMode={isDarkMode} />
       </div>
+      <AnimatePresence>
+        {showChatIcon && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ duration: 0.2 }}
+            className='fixed bottom-4 right-4 z-50'
+          >
+            <Button
+              ref={chatIconRef}
+              onClick={toggleChat}
+              size='icon'
+              className='rounded-full size-14 p-2 shadow-lg'
+            >
+              {!isChatOpen ? (
+                <MessageCircle className='size-12' />
+              ) : (
+                <ArrowDownCircleIcon />
+              )}
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isChatOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            className='fixed bottom-20 right-4 z-50 w-[95%] md:w-[500px]'
+          >
+            <Card className='border-2'>
+              <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-3'>
+                <CardTitle className='text-lg font-bold'>
+                  Chat With Krasimir AI Bot
+                </CardTitle>
+                <Button
+                  onClick={toggleChat}
+                  size='sm'
+                  variant='ghost'
+                  className='px-2 py-0'
+                >
+                  <X className='size-4' />
+                  <span className='sr-only'>Close</span>
+                </Button>
+              </CardHeader>
+
+              <CardContent>
+                <ScrollArea className='h-[300px] pr-4'>
+                  {messages?.length === 0 && (
+                    <div className='w-full mt-32 text-gray-500 items-center justify-center flex gap-3'>
+                      No message yet.
+                    </div>
+                  )}
+
+                  {messages?.map((message, index) => (
+                    <div
+                      key={index}
+                      className={`mb-4 ${
+                        message.role === 'user' ? 'text-right' : 'text-left'
+                      }`}
+                    >
+                      <div
+                        className={`inline-block rounded-lg p-4 ${
+                          message.role === 'user'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted'
+                        }`}
+                      >
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            code: CodeBlock, // Ползваме си нашия типизиран компонент
+                            ul: ({ children }) => (
+                              <ul className='list-disc ml-4'>{children}</ul>
+                            ),
+                            ol: ({ children }) => (
+                              <ol className='list-decimal ml-4'>{children}</ol>
+                            ),
+                          }}
+                        >
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
+                    </div>
+                  ))}
+
+                  {isLoading && (
+                    <div className='w-full items-center flex justify-center gap-3'>
+                      <Loader2 className='animate-spin h-5 w-5 text-primary' />
+                      <button
+                        className='underline'
+                        type='button'
+                        onClick={() => stop()}
+                      >
+                        Abort
+                      </button>
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className='w-full items-center flex justify-center gap-3'>
+                      <p>An error occurred.</p>
+                      <button
+                        className='underline'
+                        type='button'
+                        onClick={() => reload()}
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  )}
+
+                  <div ref={scrollRef}></div>
+                </ScrollArea>
+              </CardContent>
+
+              <CardFooter>
+                <form
+                  onSubmit={handleSubmit}
+                  className='flex w-full items-center space-x-2'
+                >
+                  <Input
+                    value={input}
+                    onChange={handleInputChange}
+                    className='flex-1'
+                    placeholder='Type your message here...'
+                  />
+                  <Button
+                    type='submit'
+                    className='size-9'
+                    disabled={isLoading}
+                    size='icon'
+                  >
+                    <Send className='size-4' />
+                  </Button>
+                </form>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Добавете други секции тук с уникални id атрибути */}
     </>
-  )
+  );
 }

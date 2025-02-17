@@ -81,7 +81,7 @@ const Header = () => {
           transition={{ duration: 0.6, delay: 1.2 }}
           href={assets.cv_file.src} // Use .src to get the path as string
           download='CV_EN.png'
-          className='hidden lg:flex items-center gap-3 px-10 py-2.5 border text-black border-gray-500 rounded-full ml-4 bg-white font-Ovo dark:border-white/50'
+          className='flex items-center gap-3 px-10 py-2.5 border text-black border-gray-500 rounded-full ml-4 bg-white font-Ovo dark:border-white/50'
         >
           Download CV{' '}
           <Image src={assets.download_icon} alt='download' className='w-3' />{' '}

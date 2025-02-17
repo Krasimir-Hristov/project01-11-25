@@ -37,6 +37,7 @@ import {
   Loader2,
   ArrowDownCircleIcon,
 } from 'lucide-react';
+import Chatbot from './components/Chatbot';
 
 // Custom code block component for markdown rendering
 interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {
@@ -147,6 +148,9 @@ export default function Home() {
       <Navbar />
       <div id='home'>
         <Header />
+      </div>
+      <div>
+        <Chatbot />
       </div>
       <div id='about'>
         <About isDarkMode={isDarkMode} />

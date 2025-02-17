@@ -1,38 +1,37 @@
-import { assets, NavLink, navLinks } from '@/assets/assets.data'
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
-import { DarkModeNavbarProps } from '../types/darkMode'
+import { assets, NavLink, navLinks } from '@/assets/assets.data';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
+const Navbar = () => {
   // State to handle the opening/closing of the mobile menu
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScroll, setIsScroll] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
 
   // Function to toggle the mobile menu state
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   // Function to close the mobile menu
   const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsScroll(true)
+        setIsScroll(true);
       } else {
-        setIsScroll(false)
+        setIsScroll(false);
       }
-    }
-    window.addEventListener('scroll', handleScroll)
+    };
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -51,11 +50,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
       >
         {/* Logo link */}
         <Link href='/'>
-          <Image
-            src={isDarkMode ? assets.logo_dark : assets.logo}
-            alt='logo'
-            className='w-12 sm:w-20 cursor-pointer mr-14 rounded-full'
-          />
+          <p className='font-extrabold border border-black p-1'>
+            KRASIMIR | HRISTOV
+          </p>
         </Link>
 
         {/* Navigation links for desktop view */}
@@ -77,23 +74,19 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
 
         {/* Additional buttons and links */}
         <div className='flex items-center gap-4'>
-          <button onClick={() => setIsDarkMode((prev: boolean) => !prev)}>
+          {/* <button onClick={() => setIsDarkMode((prev: boolean) => !prev)}>
             <Image
               src={isDarkMode ? assets.sun_icon : assets.moon_icon}
               alt=''
               className='w-6'
             />
-          </button>
+          </button> */}
           <Link
             href='#contact'
             className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50'
           >
             Contact
-            <Image
-              src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon}
-              alt='arrow'
-              className='w-3'
-            />
+            <Image src={assets.arrow_icon} alt='arrow' className='w-3' />
           </Link>
         </div>
 
@@ -102,11 +95,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
           {isMenuOpen ? (
             <Image src={assets.close_black} alt='Close Menu' className='w-6' />
           ) : (
-            <Image
-              src={isDarkMode ? assets.menu_white : assets.menu_black}
-              alt='Open Menu'
-              className='w-6'
-            />
+            <Image src={assets.menu_black} alt='Open Menu' className='w-6' />
           )}
         </button>
       </nav>
@@ -127,11 +116,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
       >
         {/* Close button for the mobile menu */}
         <button onClick={toggleMenu} className='absolute top-4 right-4'>
-          <Image
-            src={isDarkMode ? assets.close_white : assets.close_black}
-            alt='Close Menu'
-            className='w-6'
-          />
+          <Image src={assets.close_black} alt='Close Menu' className='w-6' />
         </button>
 
         {/* Navigation links in the mobile menu */}
@@ -150,7 +135,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: DarkModeNavbarProps) => {
         </ul>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

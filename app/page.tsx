@@ -144,7 +144,7 @@ export default function Home() {
   return (
     <>
       {/* Main page content */}
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Navbar />
       <div id='home'>
         <Header />
       </div>

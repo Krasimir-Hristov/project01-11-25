@@ -36,9 +36,11 @@ import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 import cv_file from './CV_EN.png';
+import chatbot from './chatbot.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  chatbot,
   cv_file,
   user_image,
   code_icon,

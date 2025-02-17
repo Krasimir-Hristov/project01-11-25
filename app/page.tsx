@@ -151,7 +151,7 @@ export default function Home() {
       <div id='about'>
         <About isDarkMode={isDarkMode} />
       </div>
-      <div id='services'>
+      <div id='tech'>
         <Services />
       </div>
       <div id='work'>

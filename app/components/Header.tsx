@@ -1,7 +1,7 @@
-import { assets } from '@/assets/assets.data'
-import Image from 'next/image'
-import React from 'react'
-import { motion } from 'motion/react'
+import { assets } from '@/assets/assets.data';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'motion/react';
 
 // ✅ Header component definition
 
@@ -31,7 +31,7 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className='flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo'
       >
-        Hi! We are TEST COMPANY{' '}
+        Hi! I m KRASIMIR HRISTOV{' '}
         <Image src={assets.hand_icon} alt='header' className='w-6' />{' '}
         {/* ✋ Hand icon next to the greeting text */}
       </motion.h3>
@@ -43,7 +43,7 @@ const Header = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'
       >
-        Test text based somewhere in the world
+        Building Modern Websites based in Germany!
       </motion.h1>
 
       {/* 📄 Description paragraph with limited width for better readability */}
@@ -53,9 +53,10 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className='max-w-2xl mx-auto font-Ovo'
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-        pellentesque, mauris nec interdum ultrices, erat quam lacinia turpis, eu
-        luctus nunc eros sed ipsum.
+        I believe that great design and clean code go hand in hand. I am
+        passionate about creating web solutions that not only look great but
+        also provide an exceptional user experience. Excited to bring my skills,
+        creativity, and dedication to your development team!
       </motion.p>
 
       {/* 🔗 Buttons section with two links: Contact Us and About Us */}
@@ -68,7 +69,7 @@ const Header = () => {
           href='#contact'
           className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent'
         >
-          Contact Us{' '}
+          Contact Me{' '}
           <Image src={assets.right_arrow_white} alt='arrow' className='w-4' />{' '}
           {/* ➡️ Right arrow icon */}
         </motion.a>
@@ -78,16 +79,17 @@ const Header = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          href='#about'
+          href={assets.cv_file.src} // Use .src to get the path as string
+          download='CV_EN.png'
           className='hidden lg:flex items-center gap-3 px-10 py-2.5 border text-black border-gray-500 rounded-full ml-4 bg-white font-Ovo dark:border-white/50'
         >
-          About Us <Image src={assets.arrow_icon} alt='arrow' className='w-3' />{' '}
-          {/* ➡️ Right arrow icon */}
+          Download CV{' '}
+          <Image src={assets.download_icon} alt='download' className='w-3' />{' '}
         </motion.a>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // ✅ Exporting the Header component for use in other parts of the application
-export default Header
+export default Header;

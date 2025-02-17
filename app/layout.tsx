@@ -1,34 +1,34 @@
-import type { Metadata } from 'next'
-import { Outfit, Ovo } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Outfit, Ovo } from 'next/font/google';
+import './globals.css';
 
 const outfit = Outfit({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-})
+});
 
 const ovo = Ovo({
   subsets: ['latin'],
   weight: ['400'],
-})
+});
 
 export const metadata: Metadata = {
   title: 'Site 01.11.25',
   description: 'Web site for your business',
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scroll-smooth '>
+    <html lang='en' className='light scroll-smooth'>
       <body
         className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
       >
         {children}
       </body>
     </html>
-  )
+  );
 }

@@ -30,14 +30,10 @@ import {
 
 // Icon imports
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  X,
-  MessageCircle,
-  Send,
-  Loader2,
-  ArrowDownCircleIcon,
-} from 'lucide-react';
+import { X, MessageCircle, Send, Loader2 } from 'lucide-react';
 import Chatbot from './components/Chatbot';
+import Image from 'next/image';
+import { assets } from '@/assets/assets.data';
 
 // Custom code block component for markdown rendering
 interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {
@@ -187,7 +183,11 @@ export default function Home() {
               {!isChatOpen ? (
                 <MessageCircle className='size-12' />
               ) : (
-                <ArrowDownCircleIcon />
+                <Image
+                  src={assets.ai_avatar}
+                  alt='AI Assistant'
+                  className='w-full h-full object-cover'
+                />
               )}
             </Button>
           </motion.div>
@@ -208,7 +208,7 @@ export default function Home() {
               {/* Chat Header */}
               <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-3'>
                 <CardTitle className='text-lg font-bold'>
-                  Chat With Krasimir AI Bot
+                  Chat With My AI Assistant
                 </CardTitle>
                 <Button
                   onClick={toggleChat}

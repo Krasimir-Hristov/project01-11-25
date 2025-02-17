@@ -8,7 +8,7 @@ import { motion } from 'motion/react';
 const Header = () => {
   return (
     // 🖼️ Main container for the header section with flexbox centering and responsive width
-    <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>
+    <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4 pt-20 sm:pt-0'>
       {/* 🖼️ Image section for the header image with responsive margins and sizes */}
       <motion.div
         initial={{ scale: 0 }}

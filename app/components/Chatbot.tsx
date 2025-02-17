@@ -41,10 +41,11 @@ const Chatbot = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className='max-w-2xl mx-auto font-Ovo'
         >
-          You can ask my AI assistant anything about me – the technologies I
-          use, how to contact me, or details about the projects I've worked on.
-          The assistant responds in any language you ask and is here to help you
-          anytime – just click the icon in the bottom-right corner!
+          You can ask my AI assistant anything about me &ndash; the technologies
+          I use, how to contact me, or details about the projects I&apos;ve
+          worked on. The assistant responds in any language you ask and is here
+          to help you anytime &ndash; just click the icon in the bottom-right
+          corner!
         </motion.p>
       </div>
     </div>

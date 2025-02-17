@@ -50,7 +50,7 @@ const Navbar = () => {
       >
         {/* Logo link */}
         <Link href='/'>
-          <p className='font-extrabold border border-black p-1'>
+          <p className='font-extrabold border border-black rounded-sm p-1'>
             KRASIMIR | HRISTOV
           </p>
         </Link>

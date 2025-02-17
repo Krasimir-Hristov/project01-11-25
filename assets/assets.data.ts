@@ -87,7 +87,7 @@ export const navLinks: NavLink[] = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About Me' },
   { href: '#tech', label: 'Tech-Stack' },
-  { href: '#work', label: 'Our Work' },
+  { href: '#projects', label: 'My Projects' },
   { href: '#contact', label: 'Contacts' },
 ];
 

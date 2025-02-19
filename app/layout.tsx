@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Outfit, Ovo } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 const outfit = Outfit({
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

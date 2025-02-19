@@ -34,7 +34,7 @@ import { X, MessageCircle, Send, Loader2 } from 'lucide-react';
 import Chatbot from './components/Chatbot';
 import Image from 'next/image';
 import { assets } from '@/assets/assets.data';
-import Services from './components/Services';
+import TechStack from './components/TechStack';
 
 // Custom code block component for markdown rendering
 interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {
@@ -153,7 +153,7 @@ export default function Home() {
         <About isDarkMode={isDarkMode} />
       </div>
       <div id='tech'>
-        <Services />
+        <TechStack />
       </div>
       <div id='projects'>
         <Work isDarkMode={isDarkMode} />

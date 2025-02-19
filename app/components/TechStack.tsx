@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
 
-const Services = () => {
+const TechStack = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -75,4 +75,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default TechStack;

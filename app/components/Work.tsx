@@ -1,9 +1,9 @@
-import { assets, workData, WorkItem } from '@/assets/assets.data'
-import Image from 'next/image'
-import React from 'react'
-import { motion } from 'motion/react'
+import { assets, workData, WorkItem } from '@/assets/assets.data';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'motion/react';
 
-import { DarkModeProps } from '../types/darkMode'
+import { DarkModeProps } from '../types/darkMode';
 
 const Work = ({ isDarkMode }: DarkModeProps) => {
   return (
@@ -20,7 +20,7 @@ const Work = ({ isDarkMode }: DarkModeProps) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         className='text-center mb-2 text-lg font-Ovo'
       >
-        Our Projects
+        My Projects
       </motion.h4>
 
       <motion.h2
@@ -29,7 +29,7 @@ const Work = ({ isDarkMode }: DarkModeProps) => {
         transition={{ duration: 0.5, delay: 0.5 }}
         className='text-center text-5xl font-Ovo'
       >
-        Our latest Work
+        My latest Work
       </motion.h2>
 
       <motion.p
@@ -81,7 +81,7 @@ const Work = ({ isDarkMode }: DarkModeProps) => {
           dark:border-white dark:hover:bg-darkHover'
       >
         {' '}
-        Contact Us Today{' '}
+        Contact Me Today{' '}
         <Image
           src={
             isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
@@ -91,7 +91,7 @@ const Work = ({ isDarkMode }: DarkModeProps) => {
         />
       </motion.a>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;

@@ -40,9 +40,21 @@ import ai_avatar from './aiavatar.png';
 import github from './github.png';
 import copilot from './copilot.png';
 import prettier from './prettier.png';
+import reactnext from './react-next.png';
+import shadcn from './shadcn.png';
+import motion from './motion.png';
+import tailwind from './tailwind.png';
+import typescript from './typescript.png';
+import javascript from './javascript.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  javascript,
+  typescript,
+  tailwind,
+  motion,
+  shadcn,
+  reactnext,
   prettier,
   copilot,
   github,
@@ -99,6 +111,53 @@ export const navLinks: NavLink[] = [
   { href: '#tech', label: 'Tech-Stack' },
   { href: '#projects', label: 'My Projects' },
   { href: '#contact', label: 'Contacts' },
+];
+
+// Define the TechStack interface
+export interface TechItem {
+  icon: StaticImageData;
+  title: string;
+  description: string;
+}
+
+// Tech stack data
+export const techStackData: TechItem[] = [
+  {
+    icon: assets.typescript,
+    title: 'TypeScript',
+    description:
+      'Writing type-safe code to ensure robust and maintainable applications with enhanced developer experience.',
+  },
+  {
+    icon: assets.javascript,
+    title: 'JavaScript',
+    description:
+      'Mastering the core language that powers modern web development with ES6+ features.',
+  },
+  {
+    icon: assets.reactnext,
+    title: 'React & Next.js',
+    description:
+      'Building modern, server-side rendered applications with the power of React and Next.js for optimal performance and SEO.',
+  },
+  {
+    icon: assets.tailwind,
+    title: 'Tailwind CSS',
+    description:
+      'Creating beautiful, responsive designs with utility-first CSS framework for rapid UI development.',
+  },
+  {
+    icon: assets.shadcn,
+    title: 'shadcn/ui',
+    description:
+      'Implementing accessible and customizable UI components for creating beautiful user interfaces.',
+  },
+  {
+    icon: assets.motion,
+    title: 'Motion',
+    description:
+      'Adding smooth animations and transitions to create engaging user experiences.',
+  },
 ];
 
 export interface FooterLink {

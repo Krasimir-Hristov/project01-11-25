@@ -8,8 +8,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Services from './components/Services';
 import Work from './components/Work';
+// import Services from './components/Services';
 
 // Chat dependencies
 import { useChat } from '@ai-sdk/react';
@@ -34,6 +34,7 @@ import { X, MessageCircle, Send, Loader2 } from 'lucide-react';
 import Chatbot from './components/Chatbot';
 import Image from 'next/image';
 import { assets } from '@/assets/assets.data';
+import Services from './components/Services';
 
 // Custom code block component for markdown rendering
 interface MyCodeProps extends React.HTMLAttributes<HTMLElement> {

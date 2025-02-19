@@ -43,7 +43,7 @@ import prettier from './prettier.png';
 import reactnext from './react-next.png';
 import shadcn from './shadcn.png';
 import motion from './motion.png';
-import tailwind from './tailwind.png';
+import tailwindcss from './tailwindcss.png';
 import typescript from './typescript.png';
 import javascript from './javascript.png';
 import { StaticImageData } from 'next/image';
@@ -51,7 +51,7 @@ import { StaticImageData } from 'next/image';
 export const assets = {
   typescript,
   javascript,
-  tailwind,
+  tailwindcss,
   motion,
   shadcn,
   reactnext,
@@ -141,7 +141,7 @@ export const techStackData: TechItem[] = [
       'Building modern, server-side rendered applications with the power of React and Next.js for optimal performance and SEO.',
   },
   {
-    icon: assets.tailwind,
+    icon: assets.tailwindcss,
     title: 'Tailwind CSS',
     description:
       'Creating beautiful, responsive designs with utility-first CSS framework for rapid UI development.',

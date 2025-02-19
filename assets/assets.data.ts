@@ -7,7 +7,6 @@ import project_icon from './project-icon.png';
 import project_icon_dark from './project-icon-dark.png';
 import vscode from './vscode.png';
 import firebase from './firebase.png';
-import figma from './figma.png';
 import git from './git.png';
 import mongodb from './mongodb.png';
 import right_arrow_white from './right-arrow-white.png';
@@ -38,9 +37,11 @@ import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 import cv_file from './CV_EN.png';
 import chatbot from './chatbot.png';
 import ai_avatar from './aiavatar.png';
+import github from './github.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  github,
   chatbot,
   ai_avatar,
   cv_file,
@@ -53,7 +54,6 @@ export const assets = {
   project_icon_dark,
   vscode,
   firebase,
-  figma,
   git,
   mongodb,
   right_arrow_white,
@@ -191,7 +191,7 @@ export const infoList: InfoItem[] = [
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: 'Education',
-    description: 'B.Tech in Computer Science',
+    description: 'Software University, Sofia, Bulgaria',
   },
   {
     icon: assets.project_icon,
@@ -205,6 +205,6 @@ export const toolsData = [
   assets.vscode,
   assets.firebase,
   assets.mongodb,
-  assets.figma,
+  assets.github,
   assets.git,
 ];

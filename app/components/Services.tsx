@@ -1,4 +1,4 @@
-import { assets, techStackData } from '@/assets/assets.data';
+import { techStackData } from '@/assets/assets.data';
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';

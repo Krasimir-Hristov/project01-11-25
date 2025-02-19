@@ -1,8 +1,8 @@
-import { assets, InfoItem, infoList, toolsData } from '@/assets/assets.data'
-import Image from 'next/image'
-import React from 'react'
-import { motion } from 'motion/react'
-import { DarkModeProps } from '../types/darkMode'
+import { assets, InfoItem, infoList, toolsData } from '@/assets/assets.data';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'motion/react';
+import { DarkModeProps } from '../types/darkMode';
 
 const About = ({ isDarkMode }: DarkModeProps) => {
   return (
@@ -28,7 +28,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
         transition={{ duration: 0.5, delay: 0.5 }}
         className='text-center text-5xl font-Ovo'
       >
-        About Us
+        About Me
       </motion.h2>
 
       {/* Main content section */}
@@ -58,11 +58,15 @@ const About = ({ isDarkMode }: DarkModeProps) => {
           className='flex-1'
         >
           {/* Company description */}
-          <p className='mb-10 max-w-2xl font-Ovo text-center lg:text-left'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatem, quod, quas, doloremque quae nemo quibusdam voluptates
-            dolorum quia quos aperiam. Quisquam voluptatem, quod, quas,
-            doloremque quae nemo quibusdam voluptates dolorum quia quos aperiam.
+          <p className='mb-10 max-w-2xl text-xl font-bold font-Ovo text-center lg:text-left'>
+            Hi! I'm Krasimir Hristov a web developer and AI integration
+            enthusiast who loves experimenting with new technologies and finding
+            creative solutions. I believe that automation and artificial
+            intelligence can make web development more efficient and exciting. I
+            enjoy learning new things, growing, and applying best practices in
+            my work. I'm always open to new ideas and challenges because I
+            believe the best projects come from the courage to explore and
+            innovate.
           </p>
 
           {/* Info list section */}
@@ -108,7 +112,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
             transition={{ duration: 0.5, delay: 1.3 }}
             className='my-6 text-gray-700 font-Ovo dark:text-white/80 text-center lg:text-left'
           >
-            Tools we use
+            Tools i use
           </motion.h4>
 
           {/* Tools list */}
@@ -132,7 +136,7 @@ const About = ({ isDarkMode }: DarkModeProps) => {
         </motion.div>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

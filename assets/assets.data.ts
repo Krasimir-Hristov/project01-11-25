@@ -38,9 +38,13 @@ import cv_file from './CV_EN.png';
 import chatbot from './chatbot.png';
 import ai_avatar from './aiavatar.png';
 import github from './github.png';
+import copilot from './copilot.png';
+import prettier from './prettier.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  prettier,
+  copilot,
   github,
   chatbot,
   ai_avatar,
@@ -207,4 +211,6 @@ export const toolsData = [
   assets.mongodb,
   assets.github,
   assets.git,
+  assets.copilot,
+  assets.prettier,
 ];

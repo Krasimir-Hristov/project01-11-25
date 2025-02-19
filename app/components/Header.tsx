@@ -51,7 +51,7 @@ const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.7 }}
-        className='max-w-2xl mx-auto font-Ovo'
+        className='max-w-2xl font-bold text-xl mx-auto font-Ovo'
       >
         I believe that great design and clean code go hand in hand. I am
         passionate about creating web solutions that not only look great but

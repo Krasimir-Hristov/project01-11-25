@@ -13,8 +13,8 @@ const ovo = Ovo({
 });
 
 export const metadata: Metadata = {
-  title: 'Site 01.11.25',
-  description: 'Web site for your business',
+  title: 'Portfolio - Krasimir Hristov',
+  description: 'Portfolio for Krasimir Hristov - full-stack developer',
 };
 
 export default function RootLayout({

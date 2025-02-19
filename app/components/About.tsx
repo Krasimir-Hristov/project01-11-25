@@ -59,12 +59,12 @@ const About = ({ isDarkMode }: DarkModeProps) => {
         >
           {/* Company description */}
           <p className='mb-10 max-w-2xl text-xl font-bold font-Ovo text-center lg:text-left'>
-            Hi! I'm Krasimir Hristov a web developer and AI integration
+            Hi! I&apos;m Krasimir Hristov a web developer and AI integration
             enthusiast who loves experimenting with new technologies and finding
             creative solutions. I believe that automation and artificial
             intelligence can make web development more efficient and exciting. I
             enjoy learning new things, growing, and applying best practices in
-            my work. I'm always open to new ideas and challenges because I
+            my work. I&apos;m always open to new ideas and challenges because I
             believe the best projects come from the courage to explore and
             innovate.
           </p>

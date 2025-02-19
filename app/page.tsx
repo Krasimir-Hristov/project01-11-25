@@ -9,7 +9,6 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Work from './components/Work';
-// import Services from './components/Services';
 
 // Chat dependencies
 import { useChat } from '@ai-sdk/react';

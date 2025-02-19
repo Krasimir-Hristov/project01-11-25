@@ -39,7 +39,7 @@ const Chatbot = () => {
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className='max-w-2xl mx-auto font-Ovo'
+          className='max-w-2xl text-xl font-bold mx-auto font-Ovo'
         >
           You can ask my AI assistant anything about me &ndash; the technologies
           I use, how to contact me, or details about the projects I&apos;ve

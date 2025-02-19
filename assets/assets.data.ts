@@ -49,8 +49,8 @@ import javascript from './javascript.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
-  javascript,
   typescript,
+  javascript,
   tailwind,
   motion,
   shadcn,

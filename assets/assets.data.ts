@@ -46,9 +46,15 @@ import motion from './motion.png';
 import tailwind from './tailwindcss.png';
 import typescript from './typescript.png';
 import javascript from './javascript.png';
+import html from './html.png';
+import css from './css.png';
+import nodeexp from './nodeexp.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  html,
+  css,
+  nodeexp,
   typescript,
   javascript,
   tailwind,
@@ -123,16 +129,28 @@ export interface TechItem {
 // Tech stack data
 export const techStackData: TechItem[] = [
   {
-    icon: assets.typescript,
-    title: 'TypeScript',
+    icon: assets.html,
+    title: 'HTML',
     description:
-      'Writing type-safe code to ensure robust and maintainable applications with enhanced developer experience.',
+      'Crafting semantic and accessible web structures following modern HTML5 standards and best practices.',
+  },
+  {
+    icon: assets.css,
+    title: 'CSS',
+    description:
+      'Styling web applications with modern CSS features, including Flexbox, Grid, and CSS animations for responsive designs.',
   },
   {
     icon: assets.javascript,
     title: 'JavaScript',
     description:
       'Mastering the core language that powers modern web development with ES6+ features.',
+  },
+  {
+    icon: assets.typescript,
+    title: 'TypeScript',
+    description:
+      'Writing type-safe code to ensure robust and maintainable applications with enhanced developer experience.',
   },
   {
     icon: assets.reactnext,
@@ -157,6 +175,12 @@ export const techStackData: TechItem[] = [
     title: 'Motion',
     description:
       'Adding smooth animations and transitions to create engaging user experiences.',
+  },
+  {
+    icon: assets.nodeexp,
+    title: 'Node.js & Express',
+    description:
+      'Building scalable server-side applications and APIs using Node.js with Express.js framework for efficient backend development.',
   },
 ];
 

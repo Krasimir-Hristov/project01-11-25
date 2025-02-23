@@ -51,9 +51,15 @@ import meetmeup from './meetmeup.png';
 import nikepage from './nikepage.png';
 import fitflex from './fitflex.png';
 import elenisbakery from './elenisbakeryapp.png';
+import dhl_assistant from './dhl_assistant.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
+  dhl_assistant,
+  meetmeup,
+  nikepage,
+  fitflex,
+  elenisbakery,
   html,
   css,
   nodeexp,
@@ -198,29 +204,45 @@ export const footerLinks: FooterLink[] = [
 export interface WorkItem {
   title: string;
   description: string;
-  bgImage: string;
+  bgImage: StaticImageData;
+  link: string;
 }
 
 export const workData: WorkItem[] = [
   {
-    title: 'Frontend project',
-    description: 'Web Design',
-    bgImage: '/work-1.png',
+    title: 'Elenis Bakery',
+    description:
+      'Eleni’s Bakery is a web application that combines a website and a blog for a bakery. The owner can publish, edit, and delete products, while registered users can leave comments. The platform includes an admin panel, allowing the owner to manage users and control comments under each product.',
+    bgImage: assets.elenisbakery,
+    link: 'https://elenis-bekery.onrender.com/',
   },
   {
-    title: 'Geo based app',
-    description: 'Mobile App',
-    bgImage: '/work-2.png',
+    title: 'Fit Flex',
+    description:
+      'Fit Flex is a web application for an online fitness studio that helps users create personalized workouts. They can choose which body part they want to train, select whether to use equipment or bodyweight only, and receive a list of exercises. Each exercise comes with YouTube links demonstrating the correct execution.',
+    bgImage: assets.fitflex,
+    link: 'https://fit-flex.vercel.app/',
   },
   {
-    title: 'Photography site',
-    description: 'Web Design',
-    bgImage: '/work-3.png',
+    title: 'Meet Me Up',
+    description:
+      'Meet Me Up is a web application for online meetings that simplifies communication and event organization. Users can schedule events in advance, invite participants via a special link, and record conversations. The recordings can be watched later, providing a convenient way to revisit important discussions.',
+    bgImage: assets.meetmeup,
+    link: 'https://meet-up-now.vercel.app/',
   },
   {
-    title: 'UI/UX designing',
-    description: 'UI/UX Design',
-    bgImage: '/work-4.png',
+    title: 'DHL Driver Assistant',
+    description:
+      'DHL Driver Assistant is a web application that helps DHL drivers with information on rest days, logbook instructions, important phone numbers, and barcodes. The app supports 10 languages for easier understanding.',
+    bgImage: assets.dhl_assistant,
+    link: 'https://vercel.com/krasimirhristovs-projects/dhl-driver-assitant-dev',
+  },
+  {
+    title: 'Nike Landing Page',
+    description:
+      'Nike Landing Page is a stylish and dynamic web page created as a web design exercise. Its structure is clean and modern, featuring high-quality images, smooth animations, and responsive design. The page showcases the Nike brand in an impressive way, combining contemporary typography and interactive elements for an engaging user experience.',
+    bgImage: assets.nikepage,
+    link: 'https://nike-landing-page-psi-opal.vercel.app/',
   },
 ];
 

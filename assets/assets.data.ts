@@ -235,7 +235,7 @@ export const workData: WorkItem[] = [
     description:
       'DHL Driver Assistant is a web application that helps DHL drivers with information on rest days, logbook instructions, important phone numbers, and barcodes. The app supports 10 languages for easier understanding.',
     bgImage: assets.dhl_assistant,
-    link: 'https://vercel.com/krasimirhristovs-projects/dhl-driver-assitant-dev',
+    link: 'https://dhl-driver-assitant-dev.vercel.app/',
   },
   {
     title: 'Nike Landing Page',

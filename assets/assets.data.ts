@@ -47,6 +47,7 @@ import html from './html.png';
 import css from './css.png';
 import nodeexp from './nodeexp.png';
 import aboutme from './aboutme.png';
+import meetmeup from './meetmeup.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {

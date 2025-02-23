@@ -3,8 +3,6 @@ import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
 
-import { DarkModeProps } from '../types/darkMode';
-
 const Work = () => {
   return (
     <motion.div

@@ -9,78 +9,94 @@ const Work = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      id='work'
-      className='w-full px-[12%] py-10 scroll-mt-20'
+      id='projects'
+      className='w-full px-6 md:px-[12%] py-20 scroll-mt-20'
     >
       <motion.h4
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='text-center mb-2 text-lg font-Ovo'
+        className='text-center mb-2 text-xl font-Ovo text-gray-600 dark:text-gray-300'
       >
-        My Projects
+        Featured Projects
       </motion.h4>
 
       <motion.h2
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className='text-center text-5xl font-Ovo'
+        className='text-center text-4xl md:text-5xl font-Ovo mb-16'
       >
-        My latest Work
+        My Latest Works
       </motion.h2>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptatem, quod, quas, doloremque quae nemo quibusdam voluptates
-        dolorum quia quos aperiam.
-      </motion.p>
+      <div className='grid grid-cols-1 gap-16'>
+        {workData.map((project: WorkItem, index: number) => (
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            key={index}
+            className='flex flex-col lg:flex-row gap-8 items-center'
+          >
+            {/* Project Image */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className='w-full lg:w-1/2 aspect-video relative overflow-hidden rounded-xl shadow-lg'
+            >
+              <Image
+                src={project.bgImage}
+                alt={project.title}
+                fill
+                className='object-cover'
+              />
+              <div className='absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300' />
+            </motion.div>
+
+            {/* Project Info */}
+            <div className='w-full lg:w-1/2 space-y-4'>
+              <h3 className='text-2xl md:text-3xl font-Ovo'>{project.title}</h3>
+              <p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
+                {project.description}
+              </p>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                href={project.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300 dark:bg-white dark:text-black'
+              >
+                View Project
+                <Image
+                  src={assets.right_arrow_white}
+                  alt='arrow'
+                  className='w-4 dark:invert'
+                />
+              </motion.a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
-        className='grid grid-cols-auto my10 gap-5 dark:text-black'
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className='text-center mt-20'
       >
-        {workData.map(
-          ({ title, description, bgImage }: WorkItem, index: number) => (
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              key={index}
-              className='aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group'
-              style={{ backgroundImage: `url(${bgImage})` }}
-            >
-              <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7'>
-                <div>
-                  <h2 className='font-semibold'>{title}</h2>
-                  <p className='text-sm text-gray-700'>{description}</p>
-                </div>
-                <div className='border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition'>
-                  <Image src={assets.send_icon} alt='send' className='w-5' />
-                </div>
-              </div>
-            </motion.div>
-          )
-        )}
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          href='#contact'
+          className='inline-flex items-center gap-2 text-lg font-Ovo px-8 py-4 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors duration-300 dark:border-white dark:hover:bg-white dark:hover:text-black'
+        >
+          Let&apos;s Work Together
+          <Image
+            src={assets.right_arrow}
+            alt='arrow'
+            className='w-4 dark:invert'
+          />
+        </motion.a>
       </motion.div>
-      <motion.a
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.1 }}
-        href={'#contact'}
-        className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700
-         rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white
-          dark:border-white dark:hover:bg-darkHover'
-      >
-        {' '}
-        Contact Me Today{' '}
-      </motion.a>
     </motion.div>
   );
 };

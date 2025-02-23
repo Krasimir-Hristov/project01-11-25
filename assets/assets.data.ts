@@ -50,6 +50,7 @@ import aboutme from './aboutme.png';
 import meetmeup from './meetmeup.png';
 import nikepage from './nikepage.png';
 import fitflex from './fitflex.png';
+import elenisbakery from './elenisbakeryapp.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {

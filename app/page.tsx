@@ -161,7 +161,7 @@ export default function Home() {
         <Contact />
       </div>
       <div>
-        <Footer isDarkMode={isDarkMode} />
+        <Footer />
       </div>
 
       {/* Floating Chat Button */}

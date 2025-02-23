@@ -82,13 +82,6 @@ const Work = ({ isDarkMode }: DarkModeProps) => {
       >
         {' '}
         Contact Me Today{' '}
-        <Image
-          src={
-            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
-          }
-          alt='arrow'
-          className='w-4'
-        />
       </motion.a>
     </motion.div>
   );

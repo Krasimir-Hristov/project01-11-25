@@ -46,6 +46,7 @@ import javascript from './javascript.png';
 import html from './html.png';
 import css from './css.png';
 import nodeexp from './nodeexp.png';
+import aboutme from './aboutme.png';
 import { StaticImageData } from 'next/image';
 
 export const assets = {
@@ -63,6 +64,7 @@ export const assets = {
   github,
   chatbot,
   ai_avatar,
+  aboutme,
   cv_file,
   user_image,
   code_icon,
@@ -242,7 +244,7 @@ export const infoList: InfoItem[] = [
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: 'Projects',
-    description: 'Built more than 5 projects',
+    description: 'Built my own projects',
   },
 ];
 

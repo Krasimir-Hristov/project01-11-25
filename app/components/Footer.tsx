@@ -1,8 +1,8 @@
-import { assets, FooterLink, footerLinks } from '@/assets/assets.data'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { DarkModeProps } from '../types/darkMode'
+import { assets, FooterLink, footerLinks } from '@/assets/assets.data';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { DarkModeProps } from '../types/darkMode';
 
 const Footer = ({ isDarkMode }: DarkModeProps) => {
   return (
@@ -24,7 +24,7 @@ const Footer = ({ isDarkMode }: DarkModeProps) => {
       </div>
 
       <div className='text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6'>
-        <p>&copy; 2025 Test Company. All right reserved.</p>
+        <p>&copy; 2025 Test Company.</p>
         <ul className='flex items-center gap-10 justify-center mt-4 sm:mt-0'>
           {footerLinks.map(({ href, label }: FooterLink, index) => (
             <li key={index}>
@@ -36,7 +36,7 @@ const Footer = ({ isDarkMode }: DarkModeProps) => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

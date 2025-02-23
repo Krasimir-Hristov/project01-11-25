@@ -196,8 +196,11 @@ export interface FooterLink {
 }
 
 export const footerLinks: FooterLink[] = [
-  { href: 'https://www.google.com/', label: 'GitHub' },
-  { href: 'https://www.google.com/', label: 'LinkedIn' },
+  { href: 'https://github.com/Krasimir-Hristov', label: 'GitHub' },
+  {
+    href: 'https://www.linkedin.com/in/krasimir-hristov-194309239/',
+    label: 'LinkedIn',
+  },
 ];
 
 //Work Data

@@ -155,7 +155,7 @@ export default function Home() {
         <TechStack />
       </div>
       <div id='projects'>
-        <Work isDarkMode={isDarkMode} />
+        <Work />
       </div>
       <div id='contact'>
         <Contact />

@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 import { DarkModeProps } from '../types/darkMode';
 
-const Work = ({ isDarkMode }: DarkModeProps) => {
+const Work = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -18,7 +18,7 @@ const Footer = () => {
           className='flex w-max items-center gap-2 mx-auto hover:text-blue-600 transition-colors'
         >
           <Phone className='w-5 h-5' />
-          +49 176 749 29842
+          +49 173 3079213
         </a>
         <a
           href='mailto:krasimir.xristov@gmail.com'

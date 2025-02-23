@@ -1,26 +1,32 @@
-import { assets, FooterLink, footerLinks } from '@/assets/assets.data';
-import Image from 'next/image';
+import { FooterLink, footerLinks } from '@/assets/assets.data';
 import Link from 'next/link';
 import React from 'react';
-import { DarkModeProps } from '../types/darkMode';
+import { Mail, Phone } from 'lucide-react';
 
-const Footer = ({ isDarkMode }: DarkModeProps) => {
+const Footer = () => {
   return (
     <div className='mt-20'>
-      <div className='text-center'>
-        <Image
-          src={isDarkMode ? assets.logo_dark : assets.logo}
-          alt='logo'
-          className='w-36 mx-auto mb-2 rounded-full'
-        />
-        <div className='flex w-max items-center gap-2 mx-auto '>
-          <Image
-            src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
-            alt='logo'
-            className='w-6 '
-          />
-          testuser@gmail.com
-        </div>
+      <div className='text-center space-y-3'>
+        <Link
+          href='/'
+          className='font-extrabold border border-black rounded-sm p-1'
+        >
+          KRASIMIR | HRISTOV
+        </Link>
+        <a
+          href='tel:+4917674929842'
+          className='flex w-max items-center gap-2 mx-auto hover:text-blue-600 transition-colors'
+        >
+          <Phone className='w-5 h-5' />
+          +49 176 749 29842
+        </a>
+        <a
+          href='mailto:krasimir.xristov@gmail.com'
+          className='flex w-max items-center gap-2 mx-auto hover:text-blue-600 transition-colors'
+        >
+          <Mail className='w-5 h-5' />
+          krasimir.xristov@gmail.com
+        </a>
       </div>
 
       <div className='text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6'>

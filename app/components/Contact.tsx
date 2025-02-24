@@ -1,33 +1,33 @@
-import { assets } from '@/assets/assets.data'
-import Image from 'next/image'
-import { FormEvent, useState } from 'react'
-import { motion } from 'motion/react'
+import { assets } from '@/assets/assets.data';
+import Image from 'next/image';
+import { FormEvent, useState } from 'react';
+import { motion } from 'motion/react';
 
 const Contact = () => {
-  const [result, setResult] = useState<string>('')
+  const [result, setResult] = useState<string>('');
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setResult('Sending....')
-    const formData = new FormData(event.target as HTMLFormElement)
+    event.preventDefault();
+    setResult('Sending....');
+    const formData = new FormData(event.target as HTMLFormElement);
 
-    formData.append('access_key', process.env.NEXT_PUBLIC_ACCESS_KEY as string)
+    formData.append('access_key', process.env.NEXT_PUBLIC_ACCESS_KEY as string);
 
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData,
-    })
+    });
 
-    const data = await response.json()
+    const data = await response.json();
 
     if (data.success) {
-      setResult('Form Submitted Successfully' as string)
-      ;(event.target as HTMLFormElement).reset()
+      setResult('Form Submitted Successfully' as string);
+      (event.target as HTMLFormElement).reset();
     } else {
-      console.log('Error', data)
-      setResult(data.message)
+      console.log('Error', data);
+      setResult(data.message);
     }
-  }
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -43,7 +43,7 @@ const Contact = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
         className='text-center mb-2 text-lg font-Ovo'
       >
-        Connect with Us
+        Connect with Me
       </motion.h4>
 
       <motion.h2
@@ -61,9 +61,8 @@ const Contact = () => {
         transition={{ duration: 0.5, delay: 0.7 }}
         className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptatem, quod, quas, doloremque quae nemo quibusdam voluptates
-        dolorum quia quos aperiam.
+        I’m always happy to connect! Whether you have a question, an idea, or
+        just want to chat about web development, feel free to reach out.
       </motion.p>
 
       <motion.form
@@ -120,7 +119,7 @@ const Contact = () => {
         <p className='mt-4'>{result}</p>
       </motion.form>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

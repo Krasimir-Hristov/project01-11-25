@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
   // Stream response from AI model
   const stream = await streamText({
-    model: google('gemini-pro'),
+    model: google('gemini-2.0-flash'),
     messages: buildGoogleGenAIPromt(messages),
     temperature: 0.7, // Controls response randomness
   });
